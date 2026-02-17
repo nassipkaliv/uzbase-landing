@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(test:*)",
+      "WebFetch(domain:creva-agency.framer.website)",
+      "Bash(npm install:*)",
+      "Bash(node --version:*)",
+      "Bash(npm:*)",
+      "Bash(npx tsc:*)",
+      "Bash(node ./node_modules/.bin/tsc:*)",
+      "Bash(node node_modules/typescript/bin/tsc:*)",
+      "Bash(node node_modules/vite/bin/vite.js build:*)"
+    ]
+  }
+}
