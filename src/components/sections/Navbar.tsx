@@ -161,9 +161,19 @@ export function Navbar() {
         }`}
       >
         <div className="absolute inset-0 bg-midnight/98 backdrop-blur-2xl" />
-        <div className="relative z-10 flex flex-col h-full pt-24 px-6">
-          <div className="flex items-center gap-3 mb-8">
+        <div className="relative z-10 flex flex-col h-full pt-6 px-6">
+          <div className="flex items-center justify-between mb-10">
             <LanguageSwitcher />
+            <button
+              type="button"
+              onClick={() => setMobileOpen(false)}
+              className="w-10 h-10 flex items-center justify-center rounded-xl border border-border/[0.08] text-foreground cursor-pointer"
+              aria-label="Close menu"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
           <div className="flex flex-col gap-1">
             {NAV_LINKS.map((link, i) => (
