@@ -23,7 +23,7 @@ export const ru: Translations = {
     ctaSecondary: "Смотреть кейсы",
     trustPoints: [
       "Запуск за 2–4 недели",
-      "React / Next.js / Tailwind",
+      "Современный стек технологий",
       "Фиксированная стоимость",
     ],
   },
@@ -143,7 +143,7 @@ export const ru: Translations = {
       {
         title: "Реализация",
         description:
-          "Дизайн в Figma → разработка на React. Staging-ссылка с первой недели, еженедельные демо и правки.",
+          "Дизайн в Figma → разработка на подходящем стеке. Staging-ссылка с первой недели, еженедельные демо и правки.",
       },
       {
         title: "Запуск",

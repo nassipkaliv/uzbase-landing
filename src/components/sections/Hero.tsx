@@ -39,7 +39,7 @@ export function Hero() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
 
-      <Container className="relative z-10 py-32 lg:py-0">
+      <Container className="relative z-10 pt-42 pb-32 lg:pt-42 lg:pb-0">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           {/* Badges — staggered entrance */}
           <div className="hero-enter flex flex-wrap justify-center gap-2 mb-8" style={{ animationDelay: "0.1s" }}>

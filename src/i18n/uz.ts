@@ -23,7 +23,7 @@ export const uz: Translations = {
     ctaSecondary: "Keyslarni ko'rish",
     trustPoints: [
       "2–4 haftada ishga tushirish",
-      "React / Next.js / Tailwind",
+      "Zamonaviy texnologiyalar",
       "Belgilangan narx",
     ],
   },
@@ -143,7 +143,7 @@ export const uz: Translations = {
       {
         title: "Amalga oshirish",
         description:
-          "Figma'da dizayn → React'da dasturlash. Birinchi haftadan staging-havola, haftalik demo va tuzatishlar.",
+          "Figma'da dizayn → mos texnologiyada dasturlash. Birinchi haftadan staging-havola, haftalik demo va tuzatishlar.",
       },
       {
         title: "Ishga tushirish",
