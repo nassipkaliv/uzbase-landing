@@ -18,7 +18,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider defaultLocale="ru">
-        <div className="min-h-screen bg-midnight dot-grid">
+        <div className="min-h-screen bg-midnight dot-grid overflow-x-hidden">
           <CursorGlow />
           <Navbar />
           <main>
