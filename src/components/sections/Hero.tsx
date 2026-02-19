@@ -5,29 +5,29 @@ import { useTranslation } from "../../i18n/LanguageContext";
 function HeroVisual() {
   return (
     <div className="relative w-full max-w-lg mx-auto lg:mx-0">
-      <svg viewBox="0 0 400 400" className="w-full h-auto" aria-hidden="true">
+      <svg viewBox="0 0 400 400" className="w-full h-auto text-accent" aria-hidden="true">
         <defs>
           <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#00E5FF" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#00E5FF" stopOpacity="0" />
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#00E5FF" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="#00B8D4" stopOpacity="0.05" />
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
           </linearGradient>
           <linearGradient id="grad2" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#00E5FF" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="transparent" />
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
           </linearGradient>
         </defs>
         <circle cx="200" cy="200" r="180" fill="url(#glow1)" />
-        <circle cx="200" cy="200" r="120" fill="none" stroke="#00E5FF" strokeWidth="0.5" strokeOpacity="0.3" />
-        <rect x="145" y="145" width="110" height="110" rx="16" fill="url(#grad1)" stroke="#00E5FF" strokeWidth="0.5" strokeOpacity="0.2" className="animate-float" />
-        <circle cx="300" cy="120" r="24" fill="url(#grad2)" stroke="#00E5FF" strokeWidth="0.5" strokeOpacity="0.25" className="animate-float" style={{ animationDelay: "2s" }} />
-        <rect x="95" y="280" width="32" height="32" rx="4" fill="url(#grad2)" stroke="#00E5FF" strokeWidth="0.5" strokeOpacity="0.2" transform="rotate(45, 111, 296)" className="animate-float" style={{ animationDelay: "4s" }} />
-        <circle cx="320" cy="280" r="4" fill="#00E5FF" fillOpacity="0.4" />
-        <circle cx="80" cy="160" r="3" fill="#00E5FF" fillOpacity="0.3" />
-        <circle cx="260" cy="80" r="2" fill="#00E5FF" fillOpacity="0.5" />
+        <circle cx="200" cy="200" r="120" fill="none" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.3" />
+        <rect x="145" y="145" width="110" height="110" rx="16" fill="url(#grad1)" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.2" className="animate-float" />
+        <circle cx="300" cy="120" r="24" fill="url(#grad2)" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.25" className="animate-float" style={{ animationDelay: "2s" }} />
+        <rect x="95" y="280" width="32" height="32" rx="4" fill="url(#grad2)" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.2" transform="rotate(45, 111, 296)" className="animate-float" style={{ animationDelay: "4s" }} />
+        <circle cx="320" cy="280" r="4" fill="currentColor" fillOpacity="0.4" />
+        <circle cx="80" cy="160" r="3" fill="currentColor" fillOpacity="0.3" />
+        <circle cx="260" cy="80" r="2" fill="currentColor" fillOpacity="0.5" />
       </svg>
     </div>
   );
@@ -50,10 +50,15 @@ export function Hero() {
 
   return (
     <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 noise-bg overflow-hidden">
+      {/* Background effects */}
+      <div className="gradient-mesh" />
+      <div className="orb orb-cyan w-[600px] h-[600px] -top-40 -left-60 opacity-60" />
+      <div className="orb orb-purple w-[400px] h-[400px] top-20 -right-40 opacity-50" />
+
       <Container className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-[#F5F5F7]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-foreground">
               {t.hero.headlineBefore}
               <span className="text-gradient-accent">{t.hero.headlineAccent}</span>
               {t.hero.headlineAfter}

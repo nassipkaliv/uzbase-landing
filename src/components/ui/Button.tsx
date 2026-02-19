@@ -24,9 +24,9 @@ const sizeClasses: Record<Size, string> = {
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-accent text-midnight font-semibold hover:bg-accent-hover glow-accent-sm hover:glow-accent transition-all duration-200",
+    "bg-accent text-[#0A0A0F] font-semibold hover:bg-accent-hover glow-accent-sm hover:glow-accent transition-all duration-200",
   outline:
-    "border border-white/10 text-[#F5F5F7] hover:border-accent/40 hover:text-accent transition-all duration-200",
+    "border border-border/10 text-foreground hover:border-accent/40 hover:text-accent transition-all duration-200",
   ghost:
     "text-accent hover:text-accent-hover transition-colors duration-200",
 };

@@ -5,14 +5,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        midnight: "#0A0A0F",
-        surface: "#12121A",
-        elevated: "#1A1A2E",
+        midnight: "rgb(var(--color-midnight) / <alpha-value>)",
+        surface: "rgb(var(--color-surface) / <alpha-value>)",
+        elevated: "rgb(var(--color-elevated) / <alpha-value>)",
+        foreground: "rgb(var(--color-foreground) / <alpha-value>)",
         accent: {
-          DEFAULT: "#00E5FF",
-          hover: "#00B8D4",
+          DEFAULT: "rgb(var(--color-accent) / <alpha-value>)",
+          hover: "rgb(var(--color-accent-hover) / <alpha-value>)",
         },
-        muted: "#7A7A85",
+        muted: "rgb(var(--color-muted) / <alpha-value>)",
+        border: "rgb(var(--color-border) / <alpha-value>)",
+        overlay: "rgb(var(--color-overlay) / <alpha-value>)",
       },
       fontFamily: {
         sans: [

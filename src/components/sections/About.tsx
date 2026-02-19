@@ -7,7 +7,7 @@ export function About() {
   const { t } = useTranslation();
 
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28 spotlight-top">
       <Container>
         <div ref={ref} className="reveal">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -16,7 +16,7 @@ export function About() {
               <span className="text-accent text-sm font-semibold uppercase tracking-widest mb-3 block">
                 {t.about.overline}
               </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#F5F5F7] leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight">
                 {t.about.heading}
               </h2>
             </div>
@@ -30,7 +30,7 @@ export function About() {
           </div>
 
           {/* Stats row */}
-          <div className="grid grid-cols-3 gap-6 mt-14 pt-10 border-t border-white/[0.06]">
+          <div className="grid grid-cols-3 gap-6 mt-14 pt-10 border-t border-border/[0.06]">
             {t.about.stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-accent">

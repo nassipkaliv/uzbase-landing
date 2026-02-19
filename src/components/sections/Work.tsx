@@ -16,11 +16,11 @@ function CaseCard({
   wide?: boolean;
 }) {
   return (
-    <div className="group bg-surface rounded-xl border border-white/[0.06] overflow-hidden hover:border-accent/15 transition-all duration-300">
+    <div className="group bg-surface rounded-xl border border-border/[0.06] overflow-hidden hover:border-accent/15 transition-all duration-300">
       <div className="h-1 bg-gradient-to-r from-accent/60 to-accent/10" />
       <div className={`p-6 lg:p-8 ${wide ? "md:flex md:items-start md:gap-8" : ""}`}>
         <div className={wide ? "md:flex-1" : ""}>
-          <h3 className="text-xl font-semibold text-[#F5F5F7] mb-2">
+          <h3 className="text-xl font-semibold text-foreground mb-2">
             {study.title}
           </h3>
           <p className="text-muted text-sm mb-4">{study.brief}</p>
@@ -57,7 +57,7 @@ export function Work() {
   const [first, second, third] = t.work.cases;
 
   return (
-    <section id="work" className="py-20 lg:py-28">
+    <section id="work" className="py-20 lg:py-28 spotlight-top">
       <Container>
         <div ref={ref} className="reveal">
           <SectionHeading

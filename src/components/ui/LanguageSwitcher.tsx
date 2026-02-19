@@ -37,7 +37,7 @@ export function LanguageSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium border border-white/10 rounded-lg text-[#F5F5F7] hover:border-accent/40 transition-all duration-200 cursor-pointer"
+        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium border border-border/10 rounded-lg text-foreground hover:border-accent/40 transition-all duration-200 cursor-pointer"
         aria-haspopup="listbox"
         aria-expanded={open}
       >
@@ -56,7 +56,7 @@ export function LanguageSwitcher() {
 
       {open && (
         <div
-          className="absolute right-0 top-full mt-2 min-w-[140px] bg-surface border border-white/[0.08] rounded-lg shadow-xl overflow-hidden animate-fade-in z-50"
+          className="absolute right-0 top-full mt-2 min-w-[140px] bg-surface border border-border/[0.08] rounded-lg shadow-xl overflow-hidden animate-fade-in z-50"
           role="listbox"
         >
           {LOCALES.map(({ code, label, short }) => (
@@ -72,7 +72,7 @@ export function LanguageSwitcher() {
               className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 text-sm transition-colors cursor-pointer ${
                 locale === code
                   ? "text-accent bg-accent/5"
-                  : "text-[#F5F5F7] hover:bg-white/[0.04]"
+                  : "text-foreground hover:bg-overlay/[0.04]"
               }`}
             >
               <span className="text-xs font-semibold w-6">{short}</span>

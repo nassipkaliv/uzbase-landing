@@ -14,7 +14,7 @@ export function SocialProof() {
   const { t } = useTranslation();
 
   return (
-    <section className="py-12 lg:py-16 border-y border-white/[0.04]">
+    <section className="py-12 lg:py-16 border-y border-border/[0.04]">
       <Container>
         <div ref={ref} className="reveal">
           <p className="text-center text-sm text-muted mb-6 uppercase tracking-widest">
@@ -24,7 +24,7 @@ export function SocialProof() {
             {CLIENTS.map((name) => (
               <span
                 key={name}
-                className="px-5 py-2 text-sm text-muted border border-white/[0.06] rounded-full bg-white/[0.02] whitespace-nowrap"
+                className="px-5 py-2 text-sm text-muted border border-border/[0.06] rounded-full bg-overlay/[0.02] whitespace-nowrap"
               >
                 {name}
               </span>

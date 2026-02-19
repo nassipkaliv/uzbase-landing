@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
 import { LanguageSwitcher } from "../ui/LanguageSwitcher";
+import { ThemeToggle } from "../ui/ThemeToggle";
 import { useScrolledNavbar } from "../../hooks/useScrolledNavbar";
 import { useTranslation } from "../../i18n/LanguageContext";
 import logoSrc from "../../assets/logo.png";
@@ -24,13 +25,13 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-surface/80 backdrop-blur-xl border-b border-white/[0.06]"
+          ? "bg-surface/80 backdrop-blur-xl border-b border-border/[0.06]"
           : "bg-transparent"
       }`}
     >
       <Container className="flex items-center justify-between h-16 lg:h-18">
         <a href="#" className="flex items-center">
-          <img src={logoSrc} alt="UZBASE" className="h-10 w-auto" />
+          <img src={logoSrc} alt="UZBASE" className="h-10 w-auto logo-adaptive" />
         </a>
 
         {/* Desktop nav */}
@@ -39,7 +40,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted hover:text-[#F5F5F7] transition-colors duration-200"
+              className="text-sm text-muted hover:text-foreground transition-colors duration-200"
             >
               {link.label}
             </a>
@@ -48,6 +49,7 @@ export function Navbar() {
 
         <div className="hidden lg:flex items-center gap-4">
           <LanguageSwitcher />
+          <ThemeToggle />
           <Button as="a" href="#contact" size="sm">
             {t.nav.cta}
           </Button>
@@ -62,17 +64,17 @@ export function Navbar() {
           aria-expanded={mobileOpen}
         >
           <span
-            className={`block w-5 h-0.5 bg-[#F5F5F7] transition-all duration-200 ${
+            className={`block w-5 h-0.5 bg-foreground transition-all duration-200 ${
               mobileOpen ? "rotate-45 translate-y-2" : ""
             }`}
           />
           <span
-            className={`block w-5 h-0.5 bg-[#F5F5F7] transition-opacity duration-200 ${
+            className={`block w-5 h-0.5 bg-foreground transition-opacity duration-200 ${
               mobileOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block w-5 h-0.5 bg-[#F5F5F7] transition-all duration-200 ${
+            className={`block w-5 h-0.5 bg-foreground transition-all duration-200 ${
               mobileOpen ? "-rotate-45 -translate-y-2" : ""
             }`}
           />
@@ -83,12 +85,15 @@ export function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 top-16 bg-midnight/95 backdrop-blur-xl z-40 animate-fade-in">
           <Container className="flex flex-col gap-6 pt-8">
-            <LanguageSwitcher />
+            <div className="flex items-center gap-3">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-lg text-muted hover:text-[#F5F5F7] transition-colors"
+                className="text-lg text-muted hover:text-foreground transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}

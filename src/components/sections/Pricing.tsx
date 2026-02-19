@@ -30,7 +30,7 @@ export function Pricing() {
   const { t } = useTranslation();
 
   return (
-    <section id="pricing" className="py-20 lg:py-28">
+    <section id="pricing" className="py-20 lg:py-28 spotlight-top">
       <Container>
         <div ref={ref} className="reveal">
           <SectionHeading
@@ -50,10 +50,10 @@ export function Pricing() {
                     {t.pricing.mostPopular}
                   </span>
                 )}
-                <h3 className="text-xl font-semibold text-[#F5F5F7]">
+                <h3 className="text-xl font-semibold text-foreground">
                   {tier.name}
                 </h3>
-                <p className="text-2xl lg:text-3xl font-bold text-[#F5F5F7] mt-2">
+                <p className="text-2xl lg:text-3xl font-bold text-foreground mt-2">
                   {tier.price}
                 </p>
                 <p className="text-muted text-sm mt-2 mb-6">

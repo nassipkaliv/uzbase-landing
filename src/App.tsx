@@ -1,3 +1,4 @@
+import { ThemeProvider } from "./theme/ThemeContext";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import { Navbar } from "./components/sections/Navbar";
 import { Hero } from "./components/sections/Hero";
@@ -14,23 +15,29 @@ import { Footer } from "./components/sections/Footer";
 
 export default function App() {
   return (
-    <LanguageProvider defaultLocale="ru">
-      <div className="min-h-screen bg-midnight">
-        <Navbar />
-        <main>
-          <Hero />
-          <SocialProof />
-          <About />
-          <Services />
-          <Work />
-          <Process />
-          <Pricing />
-          <Testimonials />
-          <FAQ />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider defaultLocale="ru">
+        <div className="min-h-screen bg-midnight dot-grid">
+          <Navbar />
+          <main>
+            <Hero />
+            <SocialProof />
+            <About />
+            <hr className="divider-glow mx-auto max-w-3xl" />
+            <Services />
+            <Work />
+            <hr className="divider-subtle mx-auto max-w-2xl" />
+            <Process />
+            <Pricing />
+            <hr className="divider-subtle mx-auto max-w-2xl" />
+            <Testimonials />
+            <FAQ />
+            <hr className="divider-glow mx-auto max-w-3xl" />
+            <Contact />
+          </main>
+          <Footer />
+        </div>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }

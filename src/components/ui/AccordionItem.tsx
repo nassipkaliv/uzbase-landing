@@ -21,14 +21,14 @@ export function AccordionItem({ question, answer }: AccordionItemProps) {
   }, [updateHeight]);
 
   return (
-    <div className="border-b border-white/[0.06]">
+    <div className="border-b border-border/[0.06]">
       <button
         type="button"
         className="w-full flex items-center justify-between py-5 text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 rounded-lg"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
       >
-        <span className="text-[#F5F5F7] font-medium text-base lg:text-lg pr-4 group-hover:text-accent transition-colors duration-200">
+        <span className="text-foreground font-medium text-base lg:text-lg pr-4 group-hover:text-accent transition-colors duration-200">
           {question}
         </span>
         <span

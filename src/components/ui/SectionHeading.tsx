@@ -18,7 +18,7 @@ export function SectionHeading({
       <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">
         {overline}
       </p>
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F5F5F7]">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
         {heading}
       </h2>
       {subtext && (

@@ -54,12 +54,12 @@ export function Footer() {
   ];
 
   return (
-    <footer className="py-10 border-t border-white/[0.06]">
+    <footer className="py-10 border-t border-border/[0.06]">
       <Container>
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <a href="#" className="inline-block">
-              <img src={logoSrc} alt="UZBASE" className="h-10 w-auto" />
+              <img src={logoSrc} alt="UZBASE" className="h-10 w-auto logo-adaptive" />
             </a>
             <p className="text-xs text-muted mt-1">{t.footer.tagline}</p>
           </div>
@@ -69,7 +69,7 @@ export function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted hover:text-[#F5F5F7] transition-colors"
+                className="text-sm text-muted hover:text-foreground transition-colors"
               >
                 {link.label}
               </a>

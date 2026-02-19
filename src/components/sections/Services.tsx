@@ -6,24 +6,24 @@ import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useTranslation } from "../../i18n/LanguageContext";
 
 const ICONS: ReactNode[] = [
-  <svg key="design" className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-    <rect x="2" y="2" width="28" height="28" rx="6" stroke="#00E5FF" strokeWidth="1.5" strokeOpacity="0.6" />
-    <circle cx="16" cy="16" r="6" stroke="#00E5FF" strokeWidth="1.5" />
-    <path d="M16 10V2M16 30V22M10 16H2M30 16H22" stroke="#00E5FF" strokeWidth="1" strokeOpacity="0.3" />
+  <svg key="design" className="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="none">
+    <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.6" />
+    <circle cx="16" cy="16" r="6" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M16 10V2M16 30V22M10 16H2M30 16H22" stroke="currentColor" strokeWidth="1" strokeOpacity="0.3" />
   </svg>,
-  <svg key="dev" className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-    <path d="M10 8L4 16L10 24" stroke="#00E5FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M22 8L28 16L22 24" stroke="#00E5FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M18 6L14 26" stroke="#00E5FF" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.6" />
+  <svg key="dev" className="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="none">
+    <path d="M10 8L4 16L10 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M22 8L28 16L22 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M18 6L14 26" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.6" />
   </svg>,
-  <svg key="brand" className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-    <circle cx="12" cy="14" r="8" stroke="#00E5FF" strokeWidth="1.5" strokeOpacity="0.5" />
-    <circle cx="20" cy="14" r="8" stroke="#00E5FF" strokeWidth="1.5" strokeOpacity="0.5" />
-    <circle cx="16" cy="20" r="8" stroke="#00E5FF" strokeWidth="1.5" strokeOpacity="0.5" />
+  <svg key="brand" className="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="none">
+    <circle cx="12" cy="14" r="8" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.5" />
+    <circle cx="20" cy="14" r="8" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.5" />
+    <circle cx="16" cy="20" r="8" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.5" />
   </svg>,
-  <svg key="growth" className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-    <path d="M4 24L10 18L16 21L22 12L28 8" stroke="#00E5FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    <circle cx="28" cy="8" r="3" stroke="#00E5FF" strokeWidth="1.5" fill="#00E5FF" fillOpacity="0.15" />
+  <svg key="growth" className="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="none">
+    <path d="M4 24L10 18L16 21L22 12L28 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="28" cy="8" r="3" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.15" />
   </svg>,
 ];
 
@@ -32,8 +32,9 @@ export function Services() {
   const { t } = useTranslation();
 
   return (
-    <section id="services" className="py-20 lg:py-28">
-      <Container>
+    <section id="services" className="py-20 lg:py-28 relative overflow-hidden">
+      <div className="orb orb-cyan w-[500px] h-[500px] -bottom-60 -right-40 opacity-40" />
+      <Container className="relative z-10">
         <div ref={ref} className="reveal">
           <SectionHeading
             overline={t.services.overline}
@@ -43,7 +44,7 @@ export function Services() {
             {t.services.items.map((service, index) => (
               <Card key={index}>
                 <div className="mb-4">{ICONS[index]}</div>
-                <h3 className="text-lg font-semibold text-[#F5F5F7] mb-2">
+                <h3 className="text-lg font-semibold text-foreground mb-2">
                   {service.title}
                 </h3>
                 <p className="text-muted text-sm leading-relaxed">

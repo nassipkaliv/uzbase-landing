@@ -23,7 +23,7 @@ export function Process() {
                     {index + 1}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-[#F5F5F7] mb-3">
+                <h3 className="text-xl font-bold text-foreground mb-3">
                   {step.title}
                 </h3>
                 <p className="text-muted text-sm leading-relaxed">

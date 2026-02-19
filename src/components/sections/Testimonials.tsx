@@ -40,14 +40,14 @@ export function Testimonials() {
               <path d="M11.3 2.5c-1.4.7-2.5 1.5-3.4 2.5C6.6 6.3 6 7.9 6 9.8c0 .5.1.9.2 1.2h1.3c1.6 0 2.8.5 3.7 1.4.9 1 1.3 2.2 1.3 3.6 0 1.5-.5 2.7-1.4 3.6-1 .9-2.1 1.4-3.5 1.4-1.7 0-3-.6-4-1.9C2.5 17.8 2 16 2 13.7c0-2.7.8-5 2.3-7.1C5.8 4.5 8.1 3 11.3 2.5zm11 0c-1.4.7-2.5 1.5-3.4 2.5-1.3 1.3-1.9 2.9-1.9 4.8 0 .5.1.9.2 1.2h1.3c1.6 0 2.8.5 3.7 1.4.9 1 1.3 2.2 1.3 3.6 0 1.5-.5 2.7-1.4 3.6-1 .9-2.1 1.4-3.5 1.4-1.7 0-3-.6-4-1.9-1.1-1.3-1.6-3.1-1.6-5.4 0-2.7.8-5 2.3-7.1 1.5-2.1 3.8-3.6 7-4.1z" />
             </svg>
 
-            <blockquote className="text-lg sm:text-xl lg:text-2xl text-[#F5F5F7] leading-relaxed font-medium">
+            <blockquote className="text-lg sm:text-xl lg:text-2xl text-foreground leading-relaxed font-medium">
               &ldquo;{item.quote}&rdquo;
             </blockquote>
 
             <div className="mt-8 flex items-center justify-center gap-4">
               <Avatar name={item.name} />
               <div className="text-left">
-                <p className="text-base font-semibold text-[#F5F5F7]">
+                <p className="text-base font-semibold text-foreground">
                   {item.name}
                 </p>
                 <p className="text-sm text-muted">{item.role}</p>

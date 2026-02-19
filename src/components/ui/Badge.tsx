@@ -7,7 +7,7 @@ export function Badge({ children, variant = "default" }: BadgeProps) {
   const styles =
     variant === "accent"
       ? "border-accent/20 text-accent bg-accent/5"
-      : "border-white/10 text-muted bg-white/[0.03]";
+      : "border-border/10 text-muted bg-overlay/[0.03]";
 
   return (
     <span
