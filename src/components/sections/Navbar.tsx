@@ -80,11 +80,11 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
-      <div className="max-w-[1200px] mx-auto relative flex items-center justify-between px-5 py-3 rounded-2xl bg-surface/60 backdrop-blur-2xl border border-border/[0.08] shadow-[0_2px_24px_-4px_rgba(0,0,0,0.3)] overflow-hidden">
+      <div className="max-w-[1200px] mx-auto relative flex items-center justify-between px-5 py-3 rounded-2xl bg-surface/60 backdrop-blur-2xl border border-border/[0.08] shadow-[0_2px_24px_-4px_rgba(0,0,0,0.3)]">
         {/* Scroll progress bar */}
         <div
           ref={progressRef}
-          className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-left transition-none"
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-left transition-none rounded-b-2xl"
           style={{ transform: "scaleX(0)" }}
           aria-hidden="true"
         />
