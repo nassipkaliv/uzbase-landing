@@ -56,7 +56,7 @@ export function LanguageSwitcher() {
 
       {open && (
         <div
-          className="absolute right-0 top-full mt-2 min-w-[140px] bg-surface border border-border/[0.08] rounded-lg shadow-xl overflow-hidden animate-fade-in z-50"
+          className="absolute left-0 lg:right-0 lg:left-auto top-full mt-2 min-w-[140px] bg-surface border border-border/[0.08] rounded-lg shadow-xl overflow-hidden animate-fade-in z-50"
           role="listbox"
         >
           {LOCALES.map(({ code, label, short }) => (
