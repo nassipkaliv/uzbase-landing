@@ -1,78 +1,74 @@
 import { Container } from "../ui/Container";
-import { SectionHeading } from "../ui/SectionHeading";
-import { Badge } from "../ui/Badge";
-import { Button } from "../ui/Button";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useTranslation } from "../../i18n/LanguageContext";
 import type { CaseItem } from "../../i18n/types";
 
-function CaseCard({
-  study,
-  viewCase,
-  wide,
-}: {
-  study: CaseItem;
-  viewCase: string;
-  wide?: boolean;
-}) {
-  return (
-    <div className="group bg-surface rounded-xl border border-border/[0.06] overflow-hidden hover:border-accent/15 transition-all duration-300">
-      <div className="h-1 bg-gradient-to-r from-accent/60 to-accent/10" />
-      <div className={`p-6 lg:p-8 ${wide ? "md:flex md:items-start md:gap-8" : ""}`}>
-        <div className={wide ? "md:flex-1" : ""}>
-          <h3 className="text-xl font-semibold text-foreground mb-2">
-            {study.title}
-          </h3>
-          <p className="text-muted text-sm mb-4">{study.brief}</p>
-          <div className="flex flex-wrap gap-2 mb-6">
+function CaseCard({ study }: { study: CaseItem }) {
+  const inner = (
+    <div className="work-card group relative flex-shrink-0 w-[320px] sm:w-[380px] lg:w-[440px] overflow-hidden rounded-2xl border border-border/[0.06] bg-surface">
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <img
+          src={study.image}
+          alt={study.title}
+          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-midnight/0 group-hover:bg-midnight/40 transition-all duration-300" />
+      </div>
+      <div className="p-5">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-base font-semibold text-foreground">{study.title}</h3>
+          <div className="flex gap-1.5">
             {study.tags.map((tag) => (
-              <Badge key={tag} variant="accent">
+              <span key={tag} className="text-[11px] text-muted bg-overlay/[0.04] border border-border/[0.06] rounded-full px-2 py-0.5">
                 {tag}
-              </Badge>
+              </span>
             ))}
           </div>
         </div>
-        <div className={wide ? "md:flex md:items-end md:gap-8" : ""}>
-          <div className="flex gap-6 mb-6 md:mb-0">
-            {study.metrics.map((m) => (
-              <div key={m.label}>
-                <p className="text-2xl font-bold text-accent">{m.value}</p>
-                <p className="text-xs text-muted mt-0.5">{m.label}</p>
-              </div>
-            ))}
-          </div>
-          <Button as="a" href={study.url} variant="ghost" size="sm" className={wide ? "mt-6 md:mt-0" : ""} target="_blank" rel="noopener noreferrer">
-            {viewCase}
-          </Button>
-        </div>
+        <p className="text-sm text-muted">{study.brief}</p>
       </div>
     </div>
   );
+
+  if (study.url && study.url !== "#") {
+    return (
+      <a href={study.url} target="_blank" rel="noopener noreferrer" className="block">
+        {inner}
+      </a>
+    );
+  }
+  return inner;
 }
 
 export function Work() {
   const ref = useScrollReveal();
   const { t } = useTranslation();
 
-  const [first, second, third] = t.work.cases;
+  const items = [...t.work.cases, ...t.work.cases, ...t.work.cases];
 
   return (
-    <section id="work" className="py-20 lg:py-28 spotlight-top">
+    <section id="work" className="py-24 lg:py-32 overflow-hidden">
       <Container>
         <div ref={ref} className="reveal">
-          <SectionHeading
-            overline={t.work.overline}
-            heading={t.work.heading}
-          />
-          {/* Top row — 2 cards */}
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
-            <CaseCard study={first} viewCase={t.work.viewCase} />
-            <CaseCard study={second} viewCase={t.work.viewCase} />
+          <div className="max-w-xl mb-14">
+            <span data-reveal className="text-accent text-sm font-semibold uppercase tracking-widest mb-3 block">
+              {t.work.overline}
+            </span>
+            <h2 data-reveal className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight">
+              {t.work.heading}
+            </h2>
           </div>
-          {/* Bottom row — full-width card */}
-          <CaseCard study={third} viewCase={t.work.viewCase} wide />
         </div>
       </Container>
+
+      <div className="work-marquee-track">
+        <div className="work-marquee-content">
+          {items.map((study, i) => (
+            <CaseCard key={`${study.title}-${i}`} study={study} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

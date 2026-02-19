@@ -7,33 +7,24 @@ export function About() {
   const { t } = useTranslation();
 
   return (
-    <section className="py-20 lg:py-28 spotlight-top">
+    <section className="py-24 lg:py-32 spotlight-top">
       <Container>
         <div ref={ref} className="reveal">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left — text */}
-            <div>
-              <span className="text-accent text-sm font-semibold uppercase tracking-widest mb-3 block">
-                {t.about.overline}
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight">
-                {t.about.heading}
-              </h2>
-            </div>
+          <span data-reveal className="text-accent text-sm font-semibold uppercase tracking-widest mb-4 block">
+            {t.about.overline}
+          </span>
+          <h2 data-reveal className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight max-w-4xl">
+            {t.about.heading}
+          </h2>
 
-            {/* Right — description */}
-            <div className="lg:pt-10">
-              <p className="text-muted text-base lg:text-lg leading-relaxed">
-                {t.about.description}
-              </p>
-            </div>
-          </div>
+          <p data-reveal="right" className="mt-8 text-muted text-base lg:text-lg leading-relaxed max-w-xl ml-auto">
+            {t.about.description}
+          </p>
 
-          {/* Stats row */}
-          <div className="grid grid-cols-3 gap-6 mt-14 pt-10 border-t border-border/[0.06]">
+          <div className="flex flex-wrap gap-12 lg:gap-20 mt-16 pt-10 border-t border-border/[0.06]">
             {t.about.stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-accent">
+              <div key={index} data-reveal>
+                <p className="text-4xl sm:text-5xl lg:text-6xl font-bold text-accent leading-none">
                   {stat.value}
                 </p>
                 <p className="text-sm text-muted mt-2">{stat.label}</p>

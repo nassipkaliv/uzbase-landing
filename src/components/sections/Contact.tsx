@@ -23,23 +23,22 @@ export function Contact() {
       <div className="orb orb-mixed w-[700px] h-[700px] -top-80 left-1/2 -translate-x-1/2 opacity-30" />
       <Container className="relative z-10">
         <div ref={ref} className="reveal">
-          {/* Email large */}
           <div className="mb-12">
-            <span className="text-accent text-sm font-semibold uppercase tracking-widest block mb-6">
+            <span data-reveal className="text-accent text-sm font-semibold uppercase tracking-widest block mb-6">
               {t.contact.overline}
             </span>
             <a
+              data-reveal
               href={`mailto:${t.contact.emailLabel}`}
-              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground hover:text-accent transition-colors"
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground hover:text-accent transition-colors inline-block"
             >
               {t.contact.emailLabel}
             </a>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl">
-            {/* Left — heading + contacts */}
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+              <h2 data-reveal className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
                 {t.contact.heading}
               </h2>
               <p className="text-muted leading-relaxed mb-8">
@@ -70,8 +69,7 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Right — form */}
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form data-reveal="right" onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label
                   htmlFor="name"

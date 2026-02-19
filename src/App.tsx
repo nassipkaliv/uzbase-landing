@@ -23,16 +23,14 @@ export default function App() {
             <Hero />
             <SocialProof />
             <About />
-            <hr className="divider-glow mx-auto max-w-3xl" />
             <Services />
-            <Work />
             <hr className="divider-subtle mx-auto max-w-2xl" />
+            <Work />
             <Process />
             <Pricing />
-            <hr className="divider-subtle mx-auto max-w-2xl" />
             <Testimonials />
             <FAQ />
-            <hr className="divider-glow mx-auto max-w-3xl" />
+            <hr className="divider-subtle mx-auto max-w-2xl" />
             <Contact />
           </main>
           <Footer />

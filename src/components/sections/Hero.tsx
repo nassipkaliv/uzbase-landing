@@ -2,90 +2,95 @@ import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
 import { useTranslation } from "../../i18n/LanguageContext";
 
-function HeroVisual() {
-  return (
-    <div className="relative w-full max-w-lg mx-auto lg:mx-0">
-      <svg viewBox="0 0 400 400" className="w-full h-auto text-accent" aria-hidden="true">
-        <defs>
-          <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="currentColor" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-          </radialGradient>
-          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
-          </linearGradient>
-          <linearGradient id="grad2" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="currentColor" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <circle cx="200" cy="200" r="180" fill="url(#glow1)" />
-        <circle cx="200" cy="200" r="120" fill="none" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.3" />
-        <rect x="145" y="145" width="110" height="110" rx="16" fill="url(#grad1)" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.2" className="animate-float" />
-        <circle cx="300" cy="120" r="24" fill="url(#grad2)" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.25" className="animate-float" style={{ animationDelay: "2s" }} />
-        <rect x="95" y="280" width="32" height="32" rx="4" fill="url(#grad2)" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.2" transform="rotate(45, 111, 296)" className="animate-float" style={{ animationDelay: "4s" }} />
-        <circle cx="320" cy="280" r="4" fill="currentColor" fillOpacity="0.4" />
-        <circle cx="80" cy="160" r="3" fill="currentColor" fillOpacity="0.3" />
-        <circle cx="260" cy="80" r="2" fill="currentColor" fillOpacity="0.5" />
-      </svg>
-    </div>
-  );
-}
-
-const TRUST_ICONS = [
-  <svg key="speed" className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+const SERVICE_ICONS = [
+  <svg key="web" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 013 12c0-1.777.515-3.435 1.404-4.832" />
   </svg>,
-  <svg key="code" className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+  <svg key="bot" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
   </svg>,
-  <svg key="chat" className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+  <svg key="mobile" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+  </svg>,
+  <svg key="desktop" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25z" />
+  </svg>,
+  <svg key="design" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" />
   </svg>,
 ];
 
+const SERVICE_LABELS_RU = ["Сайты", "Боты", "Мобайл", "Десктоп", "Дизайн"];
+const SERVICE_LABELS_UZ = ["Saytlar", "Botlar", "Mobil", "Desktop", "Dizayn"];
+
 export function Hero() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const serviceLabels = locale === "uz" ? SERVICE_LABELS_UZ : SERVICE_LABELS_RU;
 
   return (
-    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 noise-bg overflow-hidden">
-      {/* Background effects */}
-      <div className="gradient-mesh" />
-      <div className="orb orb-cyan w-[600px] h-[600px] -top-40 -left-60 opacity-60" />
-      <div className="orb orb-purple w-[400px] h-[400px] top-20 -right-40 opacity-50" />
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      <div className="hero-grid" aria-hidden="true" />
 
-      <Container className="relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-foreground">
-              {t.hero.headlineBefore}
-              <span className="text-gradient-accent">{t.hero.headlineAccent}</span>
-              {t.hero.headlineAfter}
-            </h1>
-            <p className="mt-6 text-muted text-lg leading-relaxed max-w-xl">
-              {t.hero.subtext}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button as="a" href="#contact" size="lg">
-                {t.hero.ctaPrimary}
-              </Button>
-              <Button as="a" href="#work" variant="outline" size="lg">
-                {t.hero.ctaSecondary}
-              </Button>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-6">
-              {t.hero.trustPoints.map((point, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  {TRUST_ICONS[i]}
-                  <span className="text-sm text-muted">{point}</span>
-                </div>
-              ))}
-            </div>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-accent/[0.04] blur-[150px]" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-accent/[0.08] blur-[100px]" />
+      </div>
+
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
+
+      <Container className="relative z-10 py-32 lg:py-0">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          {/* Badges — staggered entrance */}
+          <div className="hero-enter flex flex-wrap justify-center gap-2 mb-8" style={{ animationDelay: "0.1s" }}>
+            {serviceLabels.map((label, i) => (
+              <span
+                key={label}
+                className="hero-badge inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-muted border border-border/[0.06] rounded-full bg-surface/50 backdrop-blur-sm"
+                style={{ animationDelay: `${0.3 + i * 0.1}s` }}
+              >
+                <span className="text-accent">{SERVICE_ICONS[i]}</span>
+                {label}
+              </span>
+            ))}
           </div>
-          <HeroVisual />
+
+          {/* Headline */}
+          <h1 className="hero-enter text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] text-foreground" style={{ animationDelay: "0.2s" }}>
+            {t.hero.headlineBefore}
+            <br className="hidden sm:block" />
+            <span className="text-gradient-accent">{t.hero.headlineAccent}</span>
+            {t.hero.headlineAfter}
+          </h1>
+
+          {/* Subtext */}
+          <p className="hero-enter mt-6 text-muted text-lg sm:text-xl leading-relaxed max-w-2xl" style={{ animationDelay: "0.4s" }}>
+            {t.hero.subtext}
+          </p>
+
+          {/* CTAs */}
+          <div className="hero-enter mt-10 flex flex-col sm:flex-row gap-4" style={{ animationDelay: "0.55s" }}>
+            <Button as="a" href="#contact" size="lg">
+              {t.hero.ctaPrimary}
+            </Button>
+            <Button as="a" href="#work" variant="outline" size="lg">
+              {t.hero.ctaSecondary}
+            </Button>
+          </div>
+
+          {/* Trust points */}
+          <div className="hero-enter mt-14 flex flex-wrap justify-center gap-x-8 gap-y-3" style={{ animationDelay: "0.7s" }}>
+            {t.hero.trustPoints.map((point, i) => (
+              <div key={i} className="flex items-center gap-2 text-sm text-muted">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
+                {point}
+              </div>
+            ))}
+          </div>
         </div>
       </Container>
+
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-midnight to-transparent pointer-events-none" />
     </section>
   );
 }

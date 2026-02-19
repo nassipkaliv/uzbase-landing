@@ -18,7 +18,7 @@ export const uz: Translations = {
     headlineAccent: "yaratamiz",
     headlineAfter: "",
     subtext:
-      "Biz — dizayn va dasturlash studiyasi. Biznesga o'ylab ishlangan saytlar, kuchli brending va ishlaydigan texnologiyalar orqali o'sishga yordam beramiz.",
+      "Biz — dizayn va dasturlash studiyasi. Saytlar, mobil ilovalar, Telegram botlar, desktop dasturlar — g'oyadan ishga tushirishgacha to'liq tsikl.",
     ctaPrimary: "Loyihani muhokama qilish",
     ctaSecondary: "Keyslarni ko'rish",
     trustPoints: [
@@ -49,24 +49,34 @@ export const uz: Translations = {
     heading: "Raqamli o'sish uchun kerak bo'lgan hamma narsa",
     items: [
       {
+        title: "Veb-saytlar",
+        description:
+          "Landinglar, korporativ saytlar, onlayn do'konlar. Adaptiv dizayn, SEO-optimallashtirish, yuqori yuklash tezligi.",
+      },
+      {
+        title: "Telegram botlar",
+        description:
+          "Biznes jarayonlarni avtomatlashtirish, buyurtma qabul qilish, CRM integratsiya. Qulay interfeys bilan har qanday murakkablikdagi botlar.",
+      },
+      {
+        title: "Mobil dasturlash",
+        description:
+          "iOS va Android uchun nativ va krossplatforma ilovalar. G'oyadan App Store va Google Play'da nashr qilishgacha.",
+      },
+      {
+        title: "Desktop ilovalar",
+        description:
+          "Windows, macOS va Linux uchun dasturlar. Zamonaviy UI va yuqori samaradorlikka ega ish stoli ilovalari.",
+      },
+      {
         title: "UI/UX Dizayn",
         description:
-          "Foydalanuvchilarga tushunarli va konversiya keltiradigan interfeyslar loyihalaymiz. Tadqiqot, vayrfreymlar, Figma'da tayyor maketlar.",
+          "Foydalanuvchilarga tushunarli va konversiya keltiradigan interfeyslar loyihalaymiz. Tadqiqot, vayrfreymlar, Figma'da maketlar.",
       },
       {
-        title: "Veb-dasturlash",
+        title: "Takomillashtirish va qo'llab-quvvatlash",
         description:
-          "React va Next.js da tez va adaptiv saytlar. Toza kod, SEO-optimallashtirish, mukammal Lighthouse ball.",
-      },
-      {
-        title: "Brending va aydentika",
-        description:
-          "Brendingizning vizual tilini yaratamiz — logotip, rang tizimi, tipografiya, jamoa uchun qo'llanma.",
-      },
-      {
-        title: "Qo'llab-quvvatlash va rivojlantirish",
-        description:
-          "Ishga tushirgandan keyin tashlab ketmaymiz. Analitika, A/B-testlar, yaxshilashlar va biznes o'sishi bilan kengaytirish.",
+          "Mavjud mahsulotlaringizni rivojlantiramiz va qo'llab-quvvatlaymiz. Refaktoring, yangi funksional, xatolarni tuzatish, texnik yordam.",
       },
     ],
   },
@@ -79,35 +89,44 @@ export const uz: Translations = {
       {
         title: "Marpla",
         url: "https://marpla.ru/",
-        brief:
-          "Wildberries sotuvchilari uchun analitika xizmati. Deshbordlar, SEO-modul va stavkalar tizimi bilan SaaS-platformani dizayn va dasturlash.",
-        tags: ["UI/UX", "Dasturlash", "SaaS"],
-        metrics: [
-          { label: "Sotuvchilar", value: "1000+" },
-          { label: "Modullar", value: "5" },
-        ],
+        image: "/img/works/marplaLanding.png",
+        brief: "Wildberries sotuvchilari uchun SaaS analitika platformasi",
+        tags: ["SaaS", "React"],
       },
       {
-        title: "TopHeats",
-        url: "https://topheats.ru/",
-        brief:
-          "Analitika va monitoring veb-ilovasi. To'liq tsikl — interfeys loyihalashdan deploygacha.",
-        tags: ["UI/UX", "Dasturlash"],
-        metrics: [
-          { label: "Yuklash", value: "1.4s" },
-          { label: "Lighthouse", value: "94" },
-        ],
+        title: "Bonne Clinique",
+        url: "#",
+        image: "/img/works/bnImage.png",
+        brief: "Ko'p tarmoqli sog'liqni saqlash va go'zallik markazi",
+        tags: ["Korporativ", "Tibbiyot"],
       },
       {
-        title: "Meralit",
-        url: "https://meralit.ru/",
-        brief:
-          "Sankt-Peterburgdagi qurilish kompaniyasi uchun korporativ sayt. Parallaks effektli minimalist dizayn.",
-        tags: ["UI/UX", "Dasturlash"],
-        metrics: [
-          { label: "Konversiya", value: "+38%" },
-          { label: "Lighthouse", value: "96" },
-        ],
+        title: "Byuro 1:36",
+        url: "#",
+        image: "/img/works/buroLanding.png",
+        brief: "Sovg'alar, korporativ sovg'alar va POS-materiallar",
+        tags: ["Landing", "E-commerce"],
+      },
+      {
+        title: "LPMS",
+        url: "#",
+        image: "/img/works/lpmsLanding.png",
+        brief: "Past bosim ostida shakllantirish — sanoat B2B",
+        tags: ["Korporativ", "B2B"],
+      },
+      {
+        title: "Robert AI",
+        url: "#",
+        image: "/img/works/airobertLanding.png",
+        brief: "Blokcheynda AI video yaratish platformasi",
+        tags: ["Web3", "AI"],
+      },
+      {
+        title: "ProDent",
+        url: "#",
+        image: "/img/works/proDentLanding.png",
+        brief: "Stomatologiya klinikasi sayti",
+        tags: ["Tibbiyot", "Landing"],
       },
     ],
   },
@@ -244,6 +263,11 @@ export const uz: Translations = {
         question: "Ishga tushirgandan keyin nima bo'ladi?",
         answer:
           "30 kun bepul qo'llab-quvvatlash. Keyin — xizmat ko'rsatish paketlari: analitika, yaxshilashlar, A/B-testlar va kengaytirish.",
+      },
+      {
+        question: "Shoshilinch buyurtmalar qabul qilasizmi?",
+        answer:
+          "Ha, biz shoshilinch loyihalar bilan ishlaymiz. Agar bir hafta ichida ishga tushirish kerak bo'lsa — hajm, ustuvorliklar va jamoani dedlayningizga moslashtiramiz. Shoshilinch buyurtmalar narxi murakkablikka qarab 30% dan boshlab ustama bilan hisoblanadi.",
       },
     ],
   },

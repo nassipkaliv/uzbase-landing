@@ -9,8 +9,8 @@ export interface CaseItem {
   title: string;
   brief: string;
   url: string;
+  image: string;
   tags: string[];
-  metrics: { label: string; value: string }[];
 }
 
 export interface StepItem {
@@ -79,14 +79,14 @@ export interface Translations {
   services: {
     overline: string;
     heading: string;
-    items: [ServiceItem, ServiceItem, ServiceItem, ServiceItem];
+    items: [ServiceItem, ServiceItem, ServiceItem, ServiceItem, ServiceItem, ServiceItem];
   };
 
   work: {
     overline: string;
     heading: string;
     viewCase: string;
-    cases: [CaseItem, CaseItem, CaseItem];
+    cases: CaseItem[];
   };
 
   process: {
@@ -112,7 +112,7 @@ export interface Translations {
   faq: {
     overline: string;
     heading: string;
-    items: [FaqItem, FaqItem, FaqItem, FaqItem, FaqItem, FaqItem];
+    items: [FaqItem, FaqItem, FaqItem, FaqItem, FaqItem, FaqItem, FaqItem];
   };
 
   contact: {

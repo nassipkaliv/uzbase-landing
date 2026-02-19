@@ -18,11 +18,12 @@ export function FAQ() {
           />
           <div className="max-w-2xl mx-auto">
             {t.faq.items.map((item, index) => (
-              <AccordionItem
-                key={index}
-                question={item.question}
-                answer={item.answer}
-              />
+              <div key={index} data-reveal>
+                <AccordionItem
+                  question={item.question}
+                  answer={item.answer}
+                />
+              </div>
             ))}
           </div>
         </div>
