@@ -5,8 +5,8 @@ import type { CaseItem } from "../../i18n/types";
 
 function CaseCard({ study }: { study: CaseItem }) {
   const inner = (
-    <div className="work-card group relative flex-shrink-0 w-[320px] sm:w-[380px] lg:w-[440px] overflow-hidden rounded-2xl border border-border/[0.06] bg-surface">
-      <div className="relative aspect-[16/10] overflow-hidden">
+    <div className="work-card group relative flex-shrink-0 w-[320px] sm:w-[380px] lg:w-[440px] h-[280px] sm:h-[320px] lg:h-[360px] overflow-hidden rounded-2xl border border-border/[0.06] bg-surface flex flex-col">
+      <div className="relative flex-1 overflow-hidden">
         <img
           src={study.image}
           alt={study.title}
@@ -15,7 +15,7 @@ function CaseCard({ study }: { study: CaseItem }) {
         />
         <div className="absolute inset-0 bg-midnight/0 group-hover:bg-midnight/40 transition-all duration-300" />
       </div>
-      <div className="p-5">
+      <div className="p-5 shrink-0">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-base font-semibold text-foreground">{study.title}</h3>
           <div className="flex gap-1.5">
@@ -26,7 +26,7 @@ function CaseCard({ study }: { study: CaseItem }) {
             ))}
           </div>
         </div>
-        <p className="text-sm text-muted">{study.brief}</p>
+        <p className="text-sm text-muted line-clamp-2">{study.brief}</p>
       </div>
     </div>
   );
