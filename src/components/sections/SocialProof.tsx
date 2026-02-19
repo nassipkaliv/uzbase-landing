@@ -3,12 +3,10 @@ import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useTranslation } from "../../i18n/LanguageContext";
 
 const CLIENTS = [
-  "Vertex AI",
-  "NovaPay",
-  "GreenField",
-  "Archline Studio",
-  "Forma.uz",
-  "CloudBase",
+  "Marpla",
+  "TopHeats",
+  "Мералит",
+  "UZBASE Studio",
 ];
 
 export function SocialProof() {

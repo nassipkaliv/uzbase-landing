@@ -8,6 +8,7 @@ export interface ServiceItem {
 export interface CaseItem {
   title: string;
   brief: string;
+  url: string;
   tags: string[];
   metrics: { label: string; value: string }[];
 }
@@ -34,6 +35,11 @@ export interface TestimonialItem {
 export interface FaqItem {
   question: string;
   answer: string;
+}
+
+export interface StatItem {
+  value: string;
+  label: string;
 }
 
 export interface Translations {
@@ -63,6 +69,13 @@ export interface Translations {
     overline: string;
   };
 
+  about: {
+    overline: string;
+    heading: string;
+    description: string;
+    stats: [StatItem, StatItem, StatItem];
+  };
+
   services: {
     overline: string;
     heading: string;
@@ -79,7 +92,7 @@ export interface Translations {
   process: {
     overline: string;
     heading: string;
-    steps: [StepItem, StepItem, StepItem, StepItem];
+    steps: [StepItem, StepItem, StepItem];
   };
 
   pricing: {

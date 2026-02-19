@@ -32,6 +32,18 @@ export const uz: Translations = {
     overline: "Ambitsiyali kompaniyalar bizga ishonadi",
   },
 
+  about: {
+    overline: "Biz haqimizda",
+    heading: "Biznes maqsadlarni foydalanuvchi ehtiyojlari bilan bog'laydigan tajriba loyihalaymiz",
+    description:
+      "Dizayn va dasturlashga strategik yondashuv — har bir qaror ma'lumotlarga asoslangan, mahsulotingiz nafaqat chiroyli ko'rinsin, balki biznesni oldinga sursin.",
+    stats: [
+      { value: "50+", label: "Loyihalar amalga oshirilgan" },
+      { value: "98%", label: "Mijozlar mamnun" },
+      { value: "2 hafta", label: "O'rtacha ishga tushirish" },
+    ],
+  },
+
   services: {
     overline: "Xizmatlar",
     heading: "Raqamli o'sish uchun kerak bo'lgan hamma narsa",
@@ -65,33 +77,36 @@ export const uz: Translations = {
     viewCase: "Keysni ko'rish →",
     cases: [
       {
-        title: "Vertex AI Platform",
+        title: "Marpla",
+        url: "https://marpla.ru/",
         brief:
-          "AI-startap uchun landing va dizayn tizimi. Konversiya va yuklash tezligiga e'tibor.",
-        tags: ["UI/UX", "Dasturlash"],
+          "Wildberries sotuvchilari uchun analitika xizmati. Deshbordlar, SEO-modul va stavkalar tizimi bilan SaaS-platformani dizayn va dasturlash.",
+        tags: ["UI/UX", "Dasturlash", "SaaS"],
         metrics: [
-          { label: "Konversiya", value: "+42%" },
-          { label: "Yuklash", value: "1.2s" },
+          { label: "Sotuvchilar", value: "1000+" },
+          { label: "Modullar", value: "5" },
         ],
       },
       {
-        title: "NovaPay Fintech",
+        title: "TopHeats",
+        url: "https://topheats.ru/",
         brief:
-          "Fintech kompaniya uchun to'liq rebrending va korporativ sayt. Logotipdan kodgacha.",
-        tags: ["Brending", "UI/UX", "Dasturlash"],
+          "Analitika va monitoring veb-ilovasi. To'liq tsikl — interfeys loyihalashdan deploygacha.",
+        tags: ["UI/UX", "Dasturlash"],
         metrics: [
-          { label: "Rad etish", value: "−34%" },
-          { label: "Ro'yxatdan o'tish", value: "+28%" },
+          { label: "Yuklash", value: "1.4s" },
+          { label: "Lighthouse", value: "94" },
         ],
       },
       {
-        title: "GreenField App",
+        title: "Meralit",
+        url: "https://meralit.ru/",
         brief:
-          "AgriTech platforma uchun marketing sayti. Minimalist dizayn, maksimal konversiya.",
+          "Sankt-Peterburgdagi qurilish kompaniyasi uchun korporativ sayt. Parallaks effektli minimalist dizayn.",
         tags: ["UI/UX", "Dasturlash"],
         metrics: [
-          { label: "Lidlar", value: "3×" },
-          { label: "Lighthouse", value: "97" },
+          { label: "Konversiya", value: "+38%" },
+          { label: "Lighthouse", value: "96" },
         ],
       },
     ],
@@ -99,27 +114,22 @@ export const uz: Translations = {
 
   process: {
     overline: "Jarayon",
-    heading: "Ishga tushirishgacha to'rt qadam",
+    heading: "Qanday ishlaymiz",
     steps: [
       {
-        title: "Tanishuv",
+        title: "Strategiya",
         description:
-          "30 daqiqalik qo'ng'iroq. Vazifa, maqsadlar va auditoriyani tushunib olamiz. Siz brif va tijorat taklifi olasiz.",
+          "Biznes, auditoriya va raqobatchilarni o'rganamiz. Brif tuzamiz, maqsadlarni belgilaymiz va muvaffaqiyat mezonlarini aniqlaymiz.",
       },
       {
-        title: "Dizayn",
+        title: "Amalga oshirish",
         description:
-          "Vayrfreymlar → UI-konsept → Figma'da yakuniy maketlar. Har bir bosqichni ko'rasiz va tasdiqiaysiz.",
-      },
-      {
-        title: "Dasturlash",
-        description:
-          "React da pixel-perfect verstka. Birinchi haftadan staging-havola. Haftalik demo-ko'rsatuvlar.",
+          "Figma'da dizayn → React'da dasturlash. Birinchi haftadan staging-havola, haftalik demo va tuzatishlar.",
       },
       {
         title: "Ishga tushirish",
         description:
-          "Deploy, analitika sozlash, kirishlarni topshirish. Ishga tushirgandan keyin 30 kun bepul qo'llab-quvvatlash.",
+          "Deploy, analitika, kirishlarni topshirish. Ishga tushirgandan keyin 30 kun qo'llab-quvvatlash va o'sish rejasi.",
       },
     ],
   },
@@ -181,22 +191,22 @@ export const uz: Translations = {
     heading: "Mijozlar nima deydi",
     items: [
       {
-        name: "Amir Karimov",
-        role: "CEO, Vertex AI",
+        name: "Aleksey Petrov",
+        role: "CEO, Marpla",
         quote:
-          "UZBASE boshqa ikki agentlik qila olmagan narsani qildi — tezkor yuklanadigan va konvertatsiya qiladigan sayt. Birinchi oyda konversiya 42% ga oshdi.",
+          "UZBASE boshqa ikki agentlik qila olmagan narsani qildi — tez ishlaydigan va konvertatsiya qiladigan SaaS-platforma. Birinchi oyda sotuvchilar soni ikki baravar oshdi.",
       },
       {
-        name: "Lena Myuller",
-        role: "Head of Marketing, NovaPay",
+        name: "Dmitriy Sokolov",
+        role: "Founder, TopHeats",
         quote:
           "Har bir bosqichda to'liq shaffoflik. Muddatidan oldin topshirdilar. Dizayn va kod sifati barcha kutganlarimizdan oshib tushdi.",
       },
       {
-        name: "Devid Chen",
-        role: "Founder, GreenField",
+        name: "Andrey Vasilyev",
+        role: "Direktor, Meralit",
         quote:
-          "Bu shunchaki dizaynerlar emas — ular mahsulot jamoasi kabi o'ylashadi. Har bir qaror ma'lumotlar va sog'lom fikr bilan asoslangan.",
+          "Bu shunchaki dizaynerlar emas — ular mahsulot jamoasi kabi o'ylashadi. Sayt premium ko'rinadi va har kuni arizalar olib keladi.",
       },
     ],
   },

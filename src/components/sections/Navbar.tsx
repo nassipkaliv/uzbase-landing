@@ -30,7 +30,7 @@ export function Navbar() {
     >
       <Container className="flex items-center justify-between h-16 lg:h-18">
         <a href="#" className="flex items-center">
-          <img src={logoSrc} alt="UZBASE" className="h-8 w-auto" />
+          <img src={logoSrc} alt="UZBASE" className="h-10 w-auto" />
         </a>
 
         {/* Desktop nav */}
@@ -44,10 +44,10 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <LanguageSwitcher />
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-4">
+          <LanguageSwitcher />
           <Button as="a" href="#contact" size="sm">
             {t.nav.cta}
           </Button>

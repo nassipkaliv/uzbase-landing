@@ -3,8 +3,6 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useTranslation } from "../../i18n/LanguageContext";
 
-const STEP_NUMBERS = ["01", "02", "03", "04"];
-
 export function Process() {
   const ref = useScrollReveal();
   const { t } = useTranslation();
@@ -17,25 +15,20 @@ export function Process() {
             overline={t.process.overline}
             heading={t.process.heading}
           />
-          <div className="max-w-2xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {t.process.steps.map((step, index) => (
-              <div key={index} className="relative flex gap-6 pb-10 last:pb-0">
-                {index < t.process.steps.length - 1 && (
-                  <div className="absolute left-[19px] top-12 bottom-0 w-px bg-white/[0.06]" />
-                )}
-                <div className="flex-shrink-0 w-10 h-10 rounded-full border border-accent/30 bg-accent/5 flex items-center justify-center">
-                  <span className="text-accent text-sm font-semibold">
-                    {STEP_NUMBERS[index]}
+              <div key={index} className="text-center">
+                <div className="w-12 h-12 rounded-full border border-accent/30 bg-accent/5 flex items-center justify-center mx-auto mb-5">
+                  <span className="text-accent text-lg font-bold">
+                    {index + 1}
                   </span>
                 </div>
-                <div className="pt-1">
-                  <h3 className="text-lg font-semibold text-[#F5F5F7] mb-1">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted text-sm leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+                <h3 className="text-xl font-bold text-[#F5F5F7] mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-muted text-sm leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             ))}
           </div>
