@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "../ui/Button";
 import { LanguageSwitcher } from "../ui/LanguageSwitcher";
 import { ThemeToggle } from "../ui/ThemeToggle";
@@ -35,10 +35,39 @@ function useActiveSection() {
   return active;
 }
 
+function useScrollProgress() {
+  const barRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const el = barRef.current;
+        if (!el) return;
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+        el.style.transform = `scaleX(${progress})`;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return barRef;
+}
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useTranslation();
   const activeSection = useActiveSection();
+  const progressRef = useScrollProgress();
 
   const NAV_LINKS = [
     { label: t.nav.links.services, href: "#services" },
@@ -51,7 +80,14 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4">
-      <div className="max-w-[1200px] mx-auto flex items-center justify-between px-5 py-3 rounded-2xl bg-surface/60 backdrop-blur-2xl border border-border/[0.08] shadow-[0_2px_24px_-4px_rgba(0,0,0,0.3)]">
+      <div className="max-w-[1200px] mx-auto relative flex items-center justify-between px-5 py-3 rounded-2xl bg-surface/60 backdrop-blur-2xl border border-border/[0.08] shadow-[0_2px_24px_-4px_rgba(0,0,0,0.3)] overflow-hidden">
+        {/* Scroll progress bar */}
+        <div
+          ref={progressRef}
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-left transition-none"
+          style={{ transform: "scaleX(0)" }}
+          aria-hidden="true"
+        />
         {/* Logo */}
         <a href="#" className="flex items-center shrink-0">
           <img src={logoSrc} alt="UZBASE" className="h-8 w-auto logo-adaptive" />

@@ -12,12 +12,14 @@ import { Testimonials } from "./components/sections/Testimonials";
 import { FAQ } from "./components/sections/FAQ";
 import { Contact } from "./components/sections/Contact";
 import { Footer } from "./components/sections/Footer";
+import { CursorGlow } from "./components/ui/CursorGlow";
 
 export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider defaultLocale="ru">
         <div className="min-h-screen bg-midnight dot-grid">
+          <CursorGlow />
           <Navbar />
           <main>
             <Hero />

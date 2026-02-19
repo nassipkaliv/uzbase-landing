@@ -55,12 +55,24 @@ export function Hero() {
             ))}
           </div>
 
-          {/* Headline */}
+          {/* Headline — word-by-word reveal */}
           <h1 className="hero-enter text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] text-foreground" style={{ animationDelay: "0.2s" }}>
-            {t.hero.headlineBefore}
+            {t.hero.headlineBefore.trim().split(/\s+/).map((word, i) => (
+              <span key={i} className="word-reveal inline-block" style={{ animationDelay: `${0.4 + i * 0.06}s` }}>
+                {word}&nbsp;
+              </span>
+            ))}
             <br className="hidden sm:block" />
-            <span className="text-gradient-accent">{t.hero.headlineAccent}</span>
-            {t.hero.headlineAfter}
+            {t.hero.headlineAccent.trim().split(/\s+/).map((word, i, arr) => (
+              <span key={`a-${i}`} className="word-reveal inline-block text-gradient-accent" style={{ animationDelay: `${0.4 + (t.hero.headlineBefore.trim().split(/\s+/).length + i) * 0.06}s` }}>
+                {word}{i < arr.length - 1 ? "\u00a0" : ""}
+              </span>
+            ))}
+            {t.hero.headlineAfter && t.hero.headlineAfter.trim().split(/\s+/).map((word, i) => (
+              <span key={`b-${i}`} className="word-reveal inline-block" style={{ animationDelay: `${0.4 + (t.hero.headlineBefore.trim().split(/\s+/).length + t.hero.headlineAccent.trim().split(/\s+/).length + i) * 0.06}s` }}>
+                &nbsp;{word}
+              </span>
+            ))}
           </h1>
 
           {/* Subtext */}
