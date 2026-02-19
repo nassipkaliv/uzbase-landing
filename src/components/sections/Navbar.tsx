@@ -1,13 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "../ui/Button";
 import { LanguageSwitcher } from "../ui/LanguageSwitcher";
 import { ThemeToggle } from "../ui/ThemeToggle";
 import { useTranslation } from "../../i18n/LanguageContext";
 import logoSrc from "../../assets/logo.png";
 
+const SECTION_IDS = ["services", "work", "process", "pricing", "faq", "contact"];
+
+function useActiveSection() {
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the most visible section
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length > 0) {
+          setActive(`#${visible[0].target.id}`);
+        }
+      },
+      { threshold: [0.15, 0.3, 0.5], rootMargin: "-80px 0px -40% 0px" }
+    );
+
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return active;
+}
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useTranslation();
+  const activeSection = useActiveSection();
 
   const NAV_LINKS = [
     { label: t.nav.links.services, href: "#services" },
@@ -26,18 +57,27 @@ export function Navbar() {
           <img src={logoSrc} alt="UZBASE" className="h-8 w-auto logo-adaptive" />
         </a>
 
-        {/* Desktop nav links — centered */}
+        {/* Desktop nav links */}
         <div className="hidden lg:flex items-center gap-1">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="relative px-3.5 py-2 text-sm text-muted hover:text-foreground transition-colors duration-200 group"
-            >
-              {link.label}
-              <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-px bg-accent group-hover:w-4/5 transition-all duration-300" />
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.href;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`relative px-3.5 py-2 text-sm transition-colors duration-200 ${
+                  isActive ? "text-foreground" : "text-muted hover:text-foreground"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 h-px bg-accent transition-all duration-300 ${
+                    isActive ? "w-4/5" : "w-0"
+                  }`}
+                />
+              </a>
+            );
+          })}
         </div>
 
         {/* Desktop right controls */}
@@ -94,9 +134,9 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-2xl font-medium text-muted hover:text-foreground py-3 border-b border-border/[0.04] transition-all duration-300 ${
-                  mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
-                }`}
+                className={`text-2xl font-medium py-3 border-b border-border/[0.04] transition-all duration-300 ${
+                  activeSection === link.href ? "text-accent" : "text-muted hover:text-foreground"
+                } ${mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`}
                 style={{ transitionDelay: mobileOpen ? `${i * 50 + 100}ms` : "0ms" }}
                 onClick={() => setMobileOpen(false)}
               >
