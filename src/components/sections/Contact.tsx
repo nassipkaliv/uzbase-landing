@@ -12,8 +12,18 @@ export function Contact() {
 
   const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    const name = data.get("name") as string;
+    const email = data.get("email") as string;
+    const message = data.get("message") as string;
+
+    const text = `Новая заявка с сайта UZBASE\n\n Имя: ${name}\n Email: ${email}\n Сообщение: ${message}\n`;
+    const tgUrl = `https://t.me/uzbase_studio?text=${encodeURIComponent(text)}`;
+    window.open(tgUrl, "_blank");
+
     setShowToast(true);
-    (e.target as HTMLFormElement).reset();
+    form.reset();
   }, []);
 
   const handleCloseToast = useCallback(() => setShowToast(false), []);
